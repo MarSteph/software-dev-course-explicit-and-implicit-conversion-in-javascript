@@ -18,15 +18,35 @@ Use console.log() to clearly show the before-and-after type conversions.
 
 */
 
-
+// This doesn't need to be changed because the "5" is implicitly converted to a number to perform the subtraction
 let result = "5" - 2;
 console.log("The result is: " + result);
 
-let isValid = Boolean("false");
+// This change works to get a falsy value because Number("false") returns NaN, which is false when converted to a boolean
+let isValid = Boolean(Number("false"));
+console.log(isValid);
 if (isValid) {
     console.log("This is valid!");
 }
 
+// This change works to calculate the total age because it converts age to a number to avoid string concatenation.
 let age = "25";
-let totalAge = age + 5;
+let totalAge = Number(age) + 5;
 console.log("Total Age: " + totalAge);
+
+// Explicit type conversion example
+let product; // undefined
+let conversion = Boolean(product); // Evaluates to false
+console.log(conversion);
+
+// Implicit type conversion example
+let user = null;
+if (user) {
+    console.log("User registered.")
+}
+else {
+  console.log("User not registered.");
+}
+
+
+
